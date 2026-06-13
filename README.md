@@ -1,7 +1,7 @@
 # SOFRA · QR Menü
 
 Tam kapsamlı bir Türk restoranı için QR ile açılan dijital menü.
-HTML prototipinden **Vite + React + TypeScript** üretim uygulamasına taşınmıştır.
+**Vite + React + TypeScript** ile geliştirilmiştir.
 
 ## Ekran Görüntüleri
 
@@ -24,9 +24,6 @@ npm run dev      # geliştirme sunucusu (http://localhost:5280)
 npm run build    # üretim derlemesi -> dist/
 npm run preview  # üretim derlemesini yerelde sunar (http://localhost:4280)
 ```
-
-> Portlar FitTrack (5173/4173) ile çakışmasın diye **5280** (dev) ve **4280**
-> (preview) olarak ayarlandı — `vite.config.ts`.
 
 Menü hem mobilde (telefon genişliğinde tam ekran) hem masaüstünde (geniş, ortalı
 kart; ürünler 2–3 kolonlu ızgara; detay ekran ortasında modal) responsive çalışır.
@@ -77,6 +74,5 @@ src/
 
 ## Sonraki adımlar (opsiyonel)
 
-Prototipte olmayan, istenirse eklenebilecek kapsam: gerçek sipariş/sepet,
-masa oturumu, stok/uygunluk rozeti, admin paneli, analitik. Ayrıntı için
-`SOFRA-QR-Menu-Spec.md` §7.
+İstenirse eklenebilecek kapsam: gerçek sipariş/sepet, masa oturumu,
+stok/uygunluk rozeti, admin paneli, analitik.
