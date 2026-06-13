@@ -1,0 +1,51 @@
+/* ============================================================
+   SOFRA — Çok dilli arayüz metinleri (i18n)
+   ============================================================ */
+import type { Lang, Strings } from "./types";
+
+export const STRINGS: Record<Lang, Strings> = {
+  tr: {
+    brand_tag: "TÜRK MUTFAĞI",
+    hero_kicker: "Hoş geldiniz",
+    hero_title: "Sofranıza\nbuyurun",
+    hero_sub: "Kahvaltıdan akşam yemeğine, ocak başından taş fırına.",
+    search_ph: "Yemek ara…",
+    favorites: "Şefin Önerileri",
+    favorites_sub: "Misafirlerimizin en sevdikleri",
+    popular: "Popüler",
+    chefs: "Şefin Önerisi",
+    menu: "Menü",
+    all: "Tümü",
+    no_results: "Sonuç bulunamadı",
+    no_results_sub: "Farklı bir kelime deneyin.",
+    detail_ingredients: "İçindekiler & Notlar",
+    detail_allergen: "Alerjen Bilgisi",
+    add: "Siparişe Ekle",
+    added: "Eklendi",
+    currency_note: "Fiyatlara KDV dahildir.",
+    footer: "Afiyet olsun · SOFRA",
+    lang: "EN",
+  },
+  en: {
+    brand_tag: "TURKISH KITCHEN",
+    hero_kicker: "Welcome",
+    hero_title: "Pull up\na chair",
+    hero_sub: "From breakfast to dinner, from the grill to the stone oven.",
+    search_ph: "Search dishes…",
+    favorites: "Chef's Picks",
+    favorites_sub: "Our guests' favourites",
+    popular: "Popular",
+    chefs: "Chef's pick",
+    menu: "Menu",
+    all: "All",
+    no_results: "No results",
+    no_results_sub: "Try a different word.",
+    detail_ingredients: "Ingredients & Notes",
+    detail_allergen: "Allergen Info",
+    add: "Add to Order",
+    added: "Added",
+    currency_note: "VAT included in all prices.",
+    footer: "Enjoy your meal · SOFRA",
+    lang: "TR",
+  },
+};
