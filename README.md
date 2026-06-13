@@ -1,78 +1,80 @@
-# SOFRA · QR Menü
+# SOFRA · QR Menü / QR Menu
 
-Tam kapsamlı bir Türk restoranı için QR ile açılan dijital menü.
-**Vite + React + TypeScript** ile geliştirilmiştir.
+**TR** — Tam kapsamlı bir Türk restoranı için QR ile açılan dijital menü. TR/EN dil desteği, mobil + masaüstü responsive. **Vite + React + TypeScript** ile geliştirilmiştir.
 
-## Ekran Görüntüleri
+**EN** — A QR-based digital menu for a full Turkish restaurant. Bilingual (TR/EN), responsive on mobile and desktop. Built with **Vite + React + TypeScript**.
 
-### Masaüstü
-![Masaüstü görünüm](screenshots/desktop.png)
+## Ekran Görüntüleri / Screenshots
 
-### Mobil
+### Masaüstü / Desktop
+![Masaüstü / Desktop](screenshots/desktop.png)
+
+### Mobil / Mobile
 | Türkçe | English |
 |---|---|
-| ![Mobil — TR](screenshots/mobile-tr.png) | ![Mobil — EN](screenshots/mobile-en.png) |
+| ![Mobil — TR](screenshots/mobile-tr.png) | ![Mobile — EN](screenshots/mobile-en.png) |
 
 ### QR Poster
 <img src="screenshots/poster.png" alt="QR Poster" width="360" />
 
-## Hızlı başlangıç
+## Hızlı başlangıç / Quick start
 
 ```bash
 npm install
-npm run dev      # geliştirme sunucusu (http://localhost:5280)
-npm run build    # üretim derlemesi -> dist/
-npm run preview  # üretim derlemesini yerelde sunar (http://localhost:4280)
+npm run dev      # geliştirme sunucusu / dev server  -> http://localhost:5280
+npm run build    # üretim derlemesi / production build -> dist/
+npm run preview  # derlemeyi yerelde sun / preview      -> http://localhost:4280
 ```
 
-Menü hem mobilde (telefon genişliğinde tam ekran) hem masaüstünde (geniş, ortalı
-kart; ürünler 2–3 kolonlu ızgara; detay ekran ortasında modal) responsive çalışır.
+**TR** — Menü hem mobilde (telefon genişliğinde tam ekran) hem masaüstünde (geniş, ortalı, çok kolonlu ızgara; detay ekran ortasında modal) responsive çalışır.
 
-## Rotalar
+**EN** — The menu is fully responsive: full-screen phone column on mobile, wide centered multi-column grid on desktop with a centered detail modal.
 
-| Rota | Açıklama |
+## Rotalar / Routes
+
+| Rota / Route | Açıklama / Description |
 |---|---|
-| `/` (veya `/menu`) | Telefon menüsü — misafirin QR okutunca gördüğü asıl ekran |
-| `/poster` | Masa 12 için QR poster |
-| `/poster/:masa` | Masa bazlı QR poster (ör. `/poster/7`) |
+| `/` (veya/or `/menu`) | Telefon menüsü / The main guest-facing menu |
+| `/poster` | Masa 12 için QR poster / QR poster for table 12 |
+| `/poster/:masa` | Masa bazlı QR poster / Per-table QR poster (ör./e.g. `/poster/7`) |
 
-QR kod, posterin barındığı origin'i `?masa=N` parametresiyle kodlar; böylece
-dağıtım yapıldığında otomatik olarak doğru menü URL'ini gösterir.
+**TR** — QR kod, posterin barındığı origin'i `?masa=N` parametresiyle kodlar; dağıtımda otomatik olarak doğru menü URL'ini gösterir.
 
-## Özellikler
+**EN** — The QR code encodes the poster's own origin with a `?masa=N` parameter, so it always points to the correct deployed menu URL.
 
-- **TR / EN anlık dil değişimi** — seçim `localStorage`'da kalıcı (`useLang`).
-- **Sticky kategori sekmeleri + scrollspy** — kaydırınca aktif kategori vurgulanır.
-- **Arama** — ürün adı ve açıklamada Türkçe-duyarlı (`toLocaleLowerCase("tr")`) filtre.
-- **Şefin Önerileri carousel'i** — `featured` ürünler.
-- **Detay alt-sayfası** — diyet/alerjen etiketleri + sembolik "Siparişe Ekle".
-- **Görsel yer tutucu** — `image` alanı dolduğunda `<img>` ile birebir yer değiştirir.
-- **Erişilebilirlik** — `<button>` hedefleri, `aria-label`'lar, `prefers-reduced-motion`,
-  `env(safe-area-inset-*)` güvenli alanlar.
+## Özellikler / Features
 
-## Klasör yapısı
+- **TR / EN dil değişimi** — anlık, seçim `localStorage`'da kalıcı. / **TR / EN switch** — instant, persisted in `localStorage`.
+- **Sticky kategori sekmeleri + scrollspy** — kaydırınca aktif kategori vurgulanır. / **Sticky category tabs + scrollspy** — active category highlights on scroll.
+- **Arama / Search** — Türkçe-duyarlı (`toLocaleLowerCase("tr")`) ad + açıklama filtresi. / Turkish-aware name + description filter.
+- **Şefin Önerileri / Chef's Picks** — `featured` ürün carousel'i. / `featured` items carousel.
+- **Detay alt-sayfası / Detail sheet** — diyet/alerjen etiketleri + sembolik "Siparişe Ekle". / diet/allergen tags + symbolic "Add to Order".
+- **Erişilebilirlik / Accessibility** — `<button>` hedefleri, `aria-label`'lar, `prefers-reduced-motion`, `env(safe-area-inset-*)`.
+
+## Klasör yapısı / Project structure
 
 ```
 src/
   components/   Tag, Pin, Photo, FeatureCard, ItemRow, DetailSheet, MenuScreen, QRPoster
   pages/        MenuPage, PosterPage
   lib/          types.ts · menu.ts · strings.ts · format.ts · i18n.tsx
-  styles/       tokens.css (tasarım token'ları) · components.css (bileşen stilleri)
-  App.tsx       rotalar
-  main.tsx      giriş noktası (BrowserRouter + LangProvider)
+  styles/       tokens.css · components.css
+  App.tsx       rotalar / routes
+  main.tsx      giriş noktası / entry (BrowserRouter + LangProvider)
 ```
 
-## İçerik düzenleme
+## İçerik düzenleme / Editing content
 
-- **Ürün / fiyat / kategori:** `src/lib/menu.ts` (`ITEMS`, `CATEGORIES`, `TAGS`).
-  Tüm alanlar `src/lib/types.ts` içinde tiplenmiştir.
-- **Arayüz metinleri:** `src/lib/strings.ts` (`STRINGS.tr` / `STRINGS.en`).
-- **Renk / tipografi token'ları:** `src/styles/tokens.css`.
+- **Ürün / fiyat / kategori — Items / prices / categories:** `src/lib/menu.ts` (`ITEMS`, `CATEGORIES`, `TAGS`, `IMAGES`).
+- **Arayüz metinleri — UI strings:** `src/lib/strings.ts` (`STRINGS.tr` / `STRINGS.en`).
+- **Renk / tipografi token'ları — Design tokens:** `src/styles/tokens.css`.
 
-> Ürün adı `itemName(item, lang)`, açıklama `itemDesc(item, lang)` ile okunur.
-> Yeni dil eklerken bu yardımcıları ve `Strings` tipini genişletin.
+**TR** — Ürün adı `itemName(item, lang)`, açıklama `itemDesc(item, lang)` ile okunur. Yeni dil eklerken bu yardımcıları ve `Strings` tipini genişletin.
 
-## Sonraki adımlar (opsiyonel)
+**EN** — Item name is read via `itemName(item, lang)` and description via `itemDesc(item, lang)`. To add a language, extend these helpers and the `Strings` type.
 
-İstenirse eklenebilecek kapsam: gerçek sipariş/sepet, masa oturumu,
-stok/uygunluk rozeti, admin paneli, analitik.
+## Sonraki adımlar / Roadmap
+
+**TR** — İstenirse eklenebilecek kapsam: gerçek sipariş/sepet, masa oturumu, stok/uygunluk rozeti, admin paneli, analitik.
+
+**EN** — Optional scope to add later: real ordering/cart, table sessions, out-of-stock badges, admin panel, analytics.
