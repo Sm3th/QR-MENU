@@ -72,9 +72,3 @@ src/
 **TR** — Ürün adı `itemName(item, lang)`, açıklama `itemDesc(item, lang)` ile okunur. Yeni dil eklerken bu yardımcıları ve `Strings` tipini genişletin.
 
 **EN** — Item name is read via `itemName(item, lang)` and description via `itemDesc(item, lang)`. To add a language, extend these helpers and the `Strings` type.
-
-## Sonraki adımlar / Roadmap
-
-**TR** — İstenirse eklenebilecek kapsam: gerçek sipariş/sepet, masa oturumu, stok/uygunluk rozeti, admin paneli, analitik.
-
-**EN** — Optional scope to add later: real ordering/cart, table sessions, out-of-stock badges, admin panel, analytics.
